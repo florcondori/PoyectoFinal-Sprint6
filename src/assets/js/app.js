@@ -1,20 +1,27 @@
 'use strict';
-const render = (root)=>{
+const render = (root,news)=>{
 	root.empty();
 
 	const wrapper = $("<div class='wrapper'></div>");
 	
-	wrapper.append(Header());
+	wrapper.append(Header);
+	wrapper.append(NewsMain(news));
+	wrapper.append(NewsSecondary(news));
 
 	root.append(wrapper);
 };
 
 const state = {
-	data: null
+	news: null
 };
 
 $(_=>{
-
-	const root = $(".root");
-	render(root);
+	$.getJSON("/api/news/", (json)=>{
+		console.log(json);
+		
+		const root = $(".root");
+		render(root, json);
+	});
+	
+	
 });

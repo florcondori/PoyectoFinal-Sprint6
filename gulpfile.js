@@ -27,7 +27,7 @@ gulp.task('js', ()=>{
 });
 
 gulp.task('img', ()=>{
-	gulp.src("./src/assets/img/**/*.png")	
+	gulp.src("./src/assets/img/*")	
 	.pipe(gulp.dest("./public/assets/img"))
 });
 
@@ -51,8 +51,8 @@ gulp.task('img-watch',['img'], (done)=>{
 	done();
 });
 
-gulp.task('serve', ['nodemon'],()=>{
-	browserSync.init(null,{
+gulp.task('serve',()=>{
+	/*browserSync.init(null,{
 		server:{
 			baseDir: "./public/",
 			proxy:{
@@ -60,12 +60,12 @@ gulp.task('serve', ['nodemon'],()=>{
 				ws: true
 			}
 		}		
-	});
+	});*/
 	
-	gulp.watch("./src/*.html", ['html-watch']);
-	gulp.watch("./src/assets/scss/**/*.scss", ['sass-watch']);
-	gulp.watch("./src/assets/js/**/*.js", ['js-watch']);
-	gulp.watch("./src/assets/img/**/*.png", ['img-watch']);
+	gulp.watch("./src/*.html", ['html']);
+	gulp.watch("./src/assets/scss/**/*.scss", ['sass']);
+	gulp.watch("./src/assets/js/**/*.js", ['js']);
+	gulp.watch("./src/assets/img/**/*.png", ['img']);
 });
 
 gulp.task('nodemon', function (cb) {

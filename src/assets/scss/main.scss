@@ -1,3 +1,10 @@
+@mixin back-news($url,$alto){
+	background-image: url("../img/news/#{$url}.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	height:#{$alto};
+}
 .icon{
 	display: inline-block;
 	background-repeat: no-repeat;
@@ -15,4 +22,27 @@
 }
 .in{
 	background-image: url("../img/in.png");
+}
+.nube{
+	background-image: url("../img/cloud.png");
+}
+.newMain{
+	@include back-news("news-0", 47vh);
+}
+.text-white{
+	color: white;
+}
+.pos-absolute{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.pos-relative{
+	position: relative;
+}
+img{
+	width:100%;
+	height: auto;
 }
