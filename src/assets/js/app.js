@@ -7,12 +7,15 @@ const render = (root,news)=>{
 	wrapper.append(Header);
 	wrapper.append(NewsMain(news));
 	wrapper.append(NewsSecondary(news));
+	wrapper.append(NewsMundo(news));
+	wrapper.append(NewsTecnologia(news));
 
 	root.append(wrapper);
 };
 
 const state = {
-	news: null
+	news: null,
+	categories: null
 };
 
 $(_=>{
@@ -21,7 +24,6 @@ $(_=>{
 		
 		const root = $(".root");
 		render(root, json);
-	});
-	
+	});	
 	
 });

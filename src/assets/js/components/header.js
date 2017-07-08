@@ -13,12 +13,11 @@ const Header = (news)=>{
 	const tw = $("<a><i class='icon tw'></i></a>");
 	const linkend = $("<a><i class='icon in'></i></a>");
 	const row2 = $("<div class='row text-center'></div>");
-	const logo = $("<img src='assets/img/logoicon.png'>");
+	const logo = $("<img src='assets/img/logoicon.png' class='logo'>");
 	const divHorario = $("<div class='hidden-xs'></div>");
 	const fecha = $("<span>Lunes, Junio 12 de 2017</span>");
 	const clima = $("<span><i class='icon nube'></i> 22°</spna>");
 	const row3 = $("<div class='row'></div>");
-	const row4 = $("<div class='row'></div>");
 	
 	divSections.append(iconSections);
 	divSections.append(titleSections);
@@ -31,11 +30,11 @@ const Header = (news)=>{
 	row.append(divSearch);
 	row.append(icons);
 
-
 	divHorario.append(fecha);
 	divHorario.append(clima);
 	row2.append(logo);
 	row2.append(divHorario);
+
 	row3.append(Categoria());
 
 	header.append(row);

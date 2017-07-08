@@ -34,10 +34,9 @@
 }
 .pos-absolute{
 	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
+	left: 70px;
 	bottom: 0;
+	width: 65%;
 }
 .pos-relative{
 	position: relative;
@@ -45,4 +44,30 @@
 img{
 	width:100%;
 	height: auto;
+}
+.logo{
+	width: 300px;
+	height: 65px;
+}
+.bg-title{
+	background-color: #2B2B2B;
+	padding-top: 2.5rem;
+	padding-left: 1.5rem;
+	height: 100px;
+}
+.horizonte{
+	width:50%;
+	display: inline-block;
+	float: left;
+	height: 100px;
+}
+.width-50{
+	width: 50%;
+	display: inline-block;
+}
+.item.width-50 .bg-title{
+	height: 70px;
+}
+.item.width-50 img{
+	height: 120px;
 }
