@@ -8,10 +8,10 @@ const NewsTecnologia = (news)=>{
 	
 	let tecno = filtered("2", news);
 
-	col1.append(typeNews(tecno[1]));
+	col1.append(typeNews(tecno[0]));
+	col2.append(typeNews(tecno[1]).addClass("width-50"));
 	col2.append(typeNews(tecno[2]).addClass("width-50"));
-	col2.append(typeNews(tecno[3]).addClass("width-50"));
-	col2.append(typeNewsHorinzontal(tecno[0]));
+	col2.append(typeNewsHorinzontal(tecno[3]));
 	col2.append(typeNewsHorinzontal(tecno[4]));
 
 	row.append(col1);

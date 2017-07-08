@@ -65,9 +65,17 @@ img{
 	width: 50%;
 	display: inline-block;
 }
-.item.width-50 .bg-title{
-	height: 70px;
+
+.border{
+	border: 3px solid #F7B617;
+	padding: 12px 7px;
 }
-.item.width-50 img{
-	height: 120px;
+.item{
+	margin-bottom: 12px;
+	&.width-50 .bg-title{
+		height: 70px;
+	}
+	&.width-50 img{
+		height: 120px;
+	}
 }

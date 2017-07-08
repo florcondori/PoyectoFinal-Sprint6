@@ -9,6 +9,9 @@ const render = (root,news)=>{
 	wrapper.append(NewsSecondary(news));
 	wrapper.append(NewsMundo(news));
 	wrapper.append(NewsTecnologia(news));
+	wrapper.append(NewsEducacion(news));
+	wrapper.append(NewsOpinion(news));
+	wrapper.append(Carousel(news));
 
 	root.append(wrapper);
 };

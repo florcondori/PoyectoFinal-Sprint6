@@ -9,6 +9,9 @@ const render = (root,news)=>{
 	wrapper.append(NewsSecondary(news));
 	wrapper.append(NewsMundo(news));
 	wrapper.append(NewsTecnologia(news));
+	wrapper.append(NewsEducacion(news));
+	wrapper.append(NewsOpinion(news));
+	wrapper.append(Carousel(news));
 
 	root.append(wrapper);
 };
@@ -27,6 +30,41 @@ $(_=>{
 	});	
 	
 });
+const filtered = (categ, news)=>{
+
+	return news.filter((obj)=>{
+		if(categ == 5){
+			if(obj.categories.indexOf(parseInt(categ)) != -1){
+				return obj;
+			}
+		}
+		
+		if(obj.categories.indexOf(parseInt(categ)) != -1 && obj.categories.length == 1){
+			return obj;
+		}
+	});
+
+}
+
+const Carousel =(news)=>{
+	const section = $("<section class='container'></section>");
+	const row = $("<div class='row border'></div>");
+		
+	let carusel = filtered("5", news);
+	console.log(carusel);
+
+	$.each(carusel, (i, obj)=>{
+		let col = $("<div class='col-xs-12 col-sm-3'></div>");
+		col.append(typeNews(obj));
+
+		row.append(col);
+	});
+
+	section.append(row);
+	
+	return section;
+
+}
 'use strict';
 const Header = (news)=>{
 	const header = $("<header class='container'></header>");
@@ -86,6 +124,38 @@ const Categoria = ()=>{
 }
 
 
+const NewsEducacion = (news)=>{
+
+	const section = $("<section class='container'></section>");
+	const h2 = $("<h2 class='text-uppercase'>educación</h2>");
+	const row1 = $("<div class='row'></div>");
+	const row2 = $("<div class='row'></div>");
+		
+	let edu = filtered("3", news);
+	console.log(edu);
+
+	$.each(edu, (i, obj)=>{
+		let col
+		if(i>=0 && i<4){
+			col = $("<div class='col-xs-12 col-sm-3'></div>");
+			col.append(typeNews(obj));
+
+			row1.append(col);
+		}
+		if(i>3){
+			col = $("<div class='col-xs-12 col-sm-6'></div>");
+			col.append(typeNewsHorinzontal(obj));
+
+			row2.append(col);
+		}
+	});
+
+	section.append(h2);
+	section.append(row1);
+	section.append(row2);
+	
+	return section;
+}
 'use strict';
 const NewsMain = (news)=>{
 	const newMain = news[0];
@@ -179,6 +249,26 @@ const typeNewsHorinzontal = (obj)=>{
 
 	return news;
 };
+const NewsOpinion = (news)=>{
+
+	const section = $("<section class='container'></section>");
+	const h2 = $("<h2 class='text-uppercase'>opinion</h2>");
+	const row = $("<div class='row'></div>");
+		
+	let opinion = filtered("4", news);
+	
+	$.each(opinion, (i, obj)=>{
+		let col = $("<div class='col-xs-12 col-sm-3'></div>");
+		col.append(typeNews(obj));
+
+		row.append(col);
+	});
+
+	section.append(h2);
+	section.append(row);
+	
+	return section;
+}
 'use strict';
 const NewsSecondary = (news)=>{
 
@@ -227,10 +317,10 @@ const NewsTecnologia = (news)=>{
 	
 	let tecno = filtered("2", news);
 
-	col1.append(typeNews(tecno[1]));
+	col1.append(typeNews(tecno[0]));
+	col2.append(typeNews(tecno[1]).addClass("width-50"));
 	col2.append(typeNews(tecno[2]).addClass("width-50"));
-	col2.append(typeNews(tecno[3]).addClass("width-50"));
-	col2.append(typeNewsHorinzontal(tecno[0]));
+	col2.append(typeNewsHorinzontal(tecno[3]));
 	col2.append(typeNewsHorinzontal(tecno[4]));
 
 	row.append(col1);
@@ -240,13 +330,4 @@ const NewsTecnologia = (news)=>{
 	section.append(row);
 	
 	return section;
-}
-const filtered = (categ, news)=>{
-
-	return news.filter((obj)=>{
-		if(obj.categories.indexOf(parseInt(categ)) != -1){
-			return obj;
-		}
-	});
-
 }
